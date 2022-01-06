@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@keyframes flyDown {
+    0% {
+        transform: translateY(-100vh);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.pop-up {
+    position: fixed;
+    background: gray;
+    min-height: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: flyDown 2s ease alternate;
+}
+
+.content {
+    width: 60%;
+    height: 80vh;
+    background: #ffffff;
+    position: relative;
+    border-radius: 5px;
+}
+
+.content .exit {
+    z-index: 9999;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+
+.content .exit svg {
+    width: 30px;
+    height: 30px;
+}
+
+.interface-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.interface-1 .logo img {
+    width: 150px;
+    max-height: 150px;
+}
+
+.interface-1 h2.message {
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.interface-1 .options{
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+}
+
+.interface-1 .camera,.upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+.interface-1 > *:last-child {
+    margin-right: none;
+}
+
+.interface-1 .options .camera-icon,.upload-icon {
+    width: 120px;
+    height: 120px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 4px gray;
+    border: 0.3px solid #6486dd;
+}
+
+.interface-1 .options svg {
+    width: 35px;
+    height: 35px;
+}
+
+.interface-1 .camera span {
+    margin-top: 10px;
+}
+
+.interface-1 .upload span {
+    margin-top: 10px;
+}
+
+.interface-1 .description {
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    background: #f7f7f7;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px 20px;
+    color: #5d5c53;
+    font-size: 12px;
+    text-align: center;
+}
+
+.interface-2 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.interface-2 .title {
+    z-index: 9999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 0 10px 20px;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.interface-2 .title svg {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.interface-2 .capture {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid #d6dce2;
+}
+
+.interface-2 .display-camera {
+    width: 40%;
+    max-height: 70%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.interface-2 .display-camera video{
+    width: 100%;
+    height: 100%;
+}
+.interface-2 .capture button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: #2f6bfe;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+.interface-3 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.interface-3 .title {
+    z-index: 9999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 0 10px 20px;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.interface-3 .title svg {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.interface-3 .main-image {
+    margin-top: 10px;
+    width: 20%;
+    max-height: 80%;
+    overflow: hidden;
+    background: #c4c4c4;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.interface-3 .main-image canvas{
+    width: 100%;
+    height: 100%;
+}
+
+.interface-3 .frames {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.interface-3 .frames > * {
+    cursor: pointer;
+    width: 100px;
+    height: 56px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+}
+
+.selected {
+    border: 2px solid #2f6bfe;
+    border-radius: 10px;
+}
+
+.interface-3 .frames img{
+    object-fit:contain;
+    width: 100%;
+    height: 100%;
+}
+
+.interface-3 .controls {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid #d6dce2;
+}
+
+.interface-3 .controls button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: #2f6bfe;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+.hidden {
+    display: none !important;
+}
