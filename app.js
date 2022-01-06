@@ -70,6 +70,7 @@ upload.onchange = (e) => {
 
         mainImage = dataImg;
         createImage(mainImage, null);
+        resetFrameSelected();
     }
 }
 
