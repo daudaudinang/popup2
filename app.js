@@ -105,8 +105,6 @@ const createImage = (i, f) => {
     
         img.onload = () => {
             img.setAttribute('crossorigin', 'anonymous');
-            canvas.width = img.width;
-            canvas.height = img.height;
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
             
             // Phải đưa vào trong onload của img để đảm bảo khung phải được vẽ sau khi đã vẽ ảnh
@@ -147,7 +145,7 @@ frames.forEach(one => {
             previousFrame.classList.remove('selected');
             previousFrame = e.target;
         }
-        if(e.target.id === 'frameNone') createImage(mainImage);
+        if(one.id === 'frameNone') createImage(mainImage);
         else {
             createImage(mainImage, one.querySelector('img').getAttribute('src'));
         }
