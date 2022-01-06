@@ -31,7 +31,7 @@ const ctx = canvas.getContext("2d");
 var mainImage;
 var stream;
 var previousPage = [];
-var previousFrame = document.querySelector('.interface-3 #frameNone');
+var previousFrame;
 
 // Handle Open and Close
 openPopupBtn.onclick = (e) => {
@@ -92,6 +92,7 @@ captureBtn.onclick = () => {
     mainImage = dataImg;
     createImage(mainImage, null);
     disableCamera();
+    resetFrameSelected();
 }
 
 // Handle In Interface 3
@@ -140,17 +141,27 @@ captureAgainBtn.onclick = () => {
 frames.forEach(one => {
     one.onclick = (e) => {
         e.preventDefault();
-        e.target.classList.add('selected');
+        one.classList.add('selected');
         if(previousFrame){
             previousFrame.classList.remove('selected');
-            previousFrame = e.target;
         }
+        previousFrame = one;
         if(one.id === 'frameNone') createImage(mainImage);
         else {
             createImage(mainImage, one.querySelector('img').getAttribute('src'));
         }
     }
 });
+
+// Handle reset frame selected
+const resetFrameSelected = () => {
+    const frameNone = document.querySelector('.interface-3 #frameNone');
+    frameNone.classList.add('selected');
+    if(previousFrame && previousFrame.id !== 'frameNone'){
+        previousFrame.classList.remove('selected');
+    }
+    previousFrame = frameNone;
+}
 
 // Handle Download
 var download = (url) => {
