@@ -197,8 +197,7 @@ var disableCamera = () => {
 back.forEach(one => {
     one.onclick = (e) => {
         e.preventDefault();
-        console.log(previousPage);
-        const interface = e.target.parentNode.parentNode;
+        const interface = one.parentNode.parentNode;
         interface.classList.add('hidden');
         // Nếu như từ interface camera, back về interface 1 thì disable camera đi
         if(interface.classList.contains('interface-2')) {
